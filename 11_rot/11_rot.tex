@@ -78,6 +78,61 @@ Die Federkonstante $k$ ist dann die Ableitung dieser Kraft nach $R$. Für das Mo
 Für Atome liegt die Frequenz $\nu$ im Bereich von $10^{15}$~Hz $= 1$~PHz. Bei Molekülen liegt sie etwas niedriger, also $\nu \approx 10^{14} \cdots 10^{15}$~Hz, also $100 \cdots 1000$~THz.
 
 
+\section{Phänomenologische Beschreibung von  Absorption}
+
+Eine ebene Welle\sidenote{Die hier benutzte Konvention der Vorzeichen ist die in der Physik übliche. In der eher ingenieurwissenschaftlichen Literatur wird oft $j = -i = -\sqrt{-1}$ verwendet, also $\exp(-i \omega t) = \exp(+j \omega t)$. Manchmal gibt es allerdings auch die Mischform $\exp(+i \omega t)$, die zu  komplex-konjugierten Gleichungen führt.} 
+\begin{equation}
+    \mathcal{E}(z,t) =  \mathcal{E}_0 \,  e^{ i (k z - \omega t)} 
+\end{equation}
+breitet sich in einem Medium aus. Die Frequenz $\omega$ ist im Vakuum und im Medium identisch, aber die Wellenzahl $k$ (bzw. der Wellenvektor $\bk$) ändert sich
+\begin{equation}
+    k = \frac{\omega}{c} = \tilde{n} \frac{2 \pi }{\lambda_0 \, c} = k_0 \sqrt{\epsilon} = k_0 \sqrt{1 + \chi' + i \chi''} 
+\end{equation}
+da der Brechungsindex $\tilde{n} = \sqrt{\epsilon}$ vom Medium abhängt. Brechungsindex $\tilde{n} = n + i \kappa$, dielektrische Funktion $\epsilon$ und   Suszeptibilität $\chi$ sind komplexwertig,
+\begin{equation}
+    \epsilon = 1 + \chi = 1 + \chi' + i \chi'' = \epsilon' + i \epsilon'' \quad .
+\end{equation}
+Das bedeutet, dass auch die Wellenzahl $k$ komplex wird
+\begin{equation}
+    k =  k_0 \sqrt{1 + \chi' + i \chi''} = \beta + i \frac{\alpha}{2} \quad .
+\end{equation}
+Die Bedeutung der reellen Werte $\alpha$ und $\beta$ wird deutlich, wenn wir diese Definition auf eine ebene Welle anwenden:
+\begin{equation}
+    \mathcal{E}(z,t) =  \mathcal{E}_0 \,  e^{ i (k z - \omega t)} =
+     \mathcal{E}_0 \, e^{-i \omega t} \, e^{i \beta z} \, e^{- \alpha z / 2} \quad .
+\end{equation}
+Die Intensität dieser Wellen nimmt somit durch die Propagation ab
+\begin{equation}
+    I(z) \propto |\mathcal{E}(z,t) |^2 = |\mathcal{E}_0|^2 \, e^{- \alpha z} \quad .
+\end{equation}
+$\alpha$ ist  der Absorptionskoeffizient\sidenote{oder Dämpfungs- oder Extinktionskoeffizient}. Ein positiver Wert für $\alpha$ bedeutet einen Intensitätsabfall, ein negativer Wert für $\alpha$ würde Verstärkung bedeuten, wie bei einem Laser. $\beta$ beschreibt den Verlauf der Phase oder der Wellenfronten. Es steht in Zusammenhang mit dem Realteil $n$ des Brechungsindexes. Alles zusammen ergibt
+\begin{equation}
+    n + i \kappa = \frac{\beta}{k_0} + i \, \frac{1}{2} \, \frac{\alpha}{k_0} = \pm \sqrt{1 + \chi' + i \chi''}
+    = \pm \sqrt{\epsilon' + i \epsilon''} \quad .
+    \label{eq:4_n_chi}
+\end{equation}
+Das Vorzeichen der Quadratwurzel wird so gewählt, dass ein positives (absorbierendes) $\chi''$ zu einem positiven (absorbierenden) $\alpha$ führt, unabhängig vom Vorzeichen von $\chi'$. Wie wir gleich sehen werden, ist $\chi' < 0$ möglich, z. B. in der Nähe von Resonanzen.
+
+Es ist praktisch, Näherungsformen von Gleichung \ref{eq:4_n_chi} für die Grenzfälle der schwachen und starken Absorption zu haben:
+\begin{align}
+    \chi'' \ll 1 + \chi' &  \rightarrow& n \approx \sqrt{1 + \chi'} && \alpha \approx  \frac{k_0}{n} \chi'' \\
+    \chi'' \gg |1 + \chi'| & \rightarrow & n \approx \sqrt{\chi'' / 2} && \alpha \approx 2 k_0 \sqrt{ \chi'' / 2}
+\end{align}
+
+% Für den  komplexwertige\sidenote{Oft wird nicht zwischen $n$ und $\tilde{n}$ unterschieden und $n$ selbst ist komplexwertig.} Brechungsindex\sidenote{Die hier benutzte Konvention der Vorzeichen ist die in der Physik übliche, ausgehend von der Zeitabhängigkeit $e^{- i \omega t}$. In der eher ingenieurwissenschaftlichen Literatur findet sich aber genauso oft auch die Zeitabhängigkeit $e^{- i \omega t}$. Dies führt zu komplex-konjugierten Gleichungen. } $\tilde{n} = n + i \kappa$ gilt
+% \begin{align}
+%  \epsilon = & \tilde{n}^2 = (n + i \kappa)^2 \\
+%   \epsilon' =& n^2 - \kappa^2 \\
+%  \epsilon'' = & 2 n \kappa \quad .
+% \end{align}
+% Dabei beschreibt $k$ die Dämpfung und $n$ die Dispersion, also die Variation der effektiven Wellenlänge in der Nähe einer Resonanz:
+% \begin{equation}
+% E(t,z) = E_0 \, e^{i \omega (t - \frac{z}{c}(n - i k))} = 
+%  E_0 \, e^{ - \frac{\omega}{c} k z}  
+%  \, e^{i \omega (t - \frac{z}{c/n} )}  \quad .
+% \end{equation}
+
+
 \section{Lorentz-Oszillator-Modell}
 
 
@@ -89,38 +144,27 @@ Für Atome liegt die Frequenz $\nu$ im Bereich von $10^{15}$~Hz $= 1$~PHz. Bei M
 
 Alle oben diskutieren Phänomene sind Resonanzen. Das Lorentz-Oszillator-Modell ist ein einfaches Modell, mit dem die Frequenzabhängigkeit der dielektrischen Funktion in der Nähe solcher Resonanzen beschrieben werden kann. In einem gedämpften harmonischen Oszillator (Masse $m$, Dämpfungskonstante $\gamma$, Eigenfrequenz $\omega_0$) wird die Masse durch ein periodisches elektrisches Feld (Amplitude $E_0$, Frequenz $\omega$) um $x$ ausgelenkt, da die Masse eine Ladung $e$ trägt. Alles zusammen
 \begin{equation}
- m \ddot{x} +  \gamma \dot{x} + m \omega_0^2  x = e E_0 e^{+ i \omega t} \quad .
+ m \ddot{x} +  \gamma \dot{x} + m \omega_0^2  x = e E_0 e^{- i \omega t} \quad .
 \end{equation}
 Die stationäre Lösung dieser Differentialgleichung ist
 \begin{equation}
- x(t) =  \frac{e \, E_0}{m (\omega_0^2  - \omega^2) + i \gamma \omega} \, e^{+ i \omega t} \quad .
+ x(t) =  \frac{e \, E_0}{m (\omega_0^2  - \omega^2) - i \gamma \omega} \, e^{- i \omega t} \quad .
 \end{equation}
 Die makroskopische Polarisation $P$ ist die Summe über alle mikroskopische Polarisationen, also
 \begin{equation}
-P(t) = N \, e \,x(t) =  (\epsilon -1 ) \epsilon_0 \, E_0 e^{+ i \omega t}
+P(t) = N \, e \,x(t) =  (\epsilon -1 ) \epsilon_0 \, E_0 e^{- i \omega t}
 = \chi \epsilon_0 E(t) \quad .
 \end{equation}
 Damit ergibt sich die dielektrische Funktion
 \begin{equation}
-\epsilon(\omega) = 1 + N \alpha = 1 +\frac{N e^2}{\epsilon_0} \frac{1}{m (\omega_0^2  - \omega^2) + i \gamma \omega} = \epsilon' - i \epsilon'' \quad .
+\epsilon(\omega) = 1 + N \alpha = 1 +\frac{N e^2}{\epsilon_0} \frac{1}{m (\omega_0^2  - \omega^2) - i \gamma \omega} = \epsilon' + i \epsilon'' \quad .
 \end{equation}
-Man beachten das per Konvention negative Vorzeichen des Imaginärteils $\epsilon''$. Explizit sind Real- und Imaginärteil
+Explizit sind Real- und Imaginärteil
 \begin{align}
  \epsilon' = & 1 + \frac{N e^2}{\epsilon_0} \frac{ m (\omega_0^2  - \omega^2)}{m^2 (\omega_0^2  - \omega^2)^2 +  \gamma^2 \omega^2}  \\
   \epsilon'' = &  \frac{N e^2}{\epsilon_0} \frac{ \gamma \omega }{m^2 (\omega_0^2  - \omega^2)^2 +  \gamma^2 \omega^2}  \quad .
 \end{align}
-Für den  komplexwertige\sidenote{Oft wird nicht zwischen $n$ und $\tilde{n}$ unterschieden und $n$ selbst ist komplexwertig.} Brechungsindex\sidenote{Die hier benutzte Konvention der Vorzeichen ist die in der Physik übliche, ausgehend von der Zeitabhängigkeit $e^{+ i \omega t}$. In der eher ingenieurwissenschaftlichen Literatur findet sich aber genauso oft auch die Zeitabhängigkeit $e^{- i \omega t}$. Dies führt zu komplex-konjugierten Gleichungen. } $\tilde{n} = n - i k$ gilt
-\begin{align}
- \epsilon = & \tilde{n}^2 = (n - i k)^2 \\
-  \epsilon' =& n^2 - k^2 \\
- \epsilon'' = & 2 n k \quad .
-\end{align}
-Dabei beschreibt $k$ die Dämpfung und $n$ die Dispersion, also die Variation der effektiven Wellenlänge in der Nähe einer Resonanz:
-\begin{equation}
-E(t,z) = E_0 \, e^{i \omega (t - \frac{z}{c}(n - i k))} = 
- E_0 \, e^{ - \frac{\omega}{c} k z}  
- \, e^{i \omega (t - \frac{z}{c/n} )}  \quad .
-\end{equation}
+
 
 Wenn in einem Medium mehrere Resonanzen vorhanden sind, so addieren sich die Suszeptibilitäten:
 \begin{equation}
